@@ -17,4 +17,8 @@ public class Game {
     public Size getSize() {
         return this.size;
     }
+
+    public List<Position> getAliveCells(){
+        return this.aliveCells;
+    }
 }

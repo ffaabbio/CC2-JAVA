@@ -2,6 +2,9 @@ package fr.esgi;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,5 +31,18 @@ public class AppTest {
         Size size = new Size(20, 20);
         Game game = new Game(size);
         assertNotNull(game.getSize(), "Game's size value should not be null");
+    }
+
+    @Test
+    public void shouldTakeSizeAndAliveCells() {
+        List<Position> aliveCells = List.of(
+            new Position(1, 2),
+            new Position(3, 4),
+            new Position(5, 6)
+        );
+        Size size = new Size(20, 20);
+        Game game = new Game(size,aliveCells);
+        assertNotNull(game.getSize(), "Game's size value should not be null");
+        assertNotNull(game.getAliveCells(), "Game's size value should not be null");
     }
 }
