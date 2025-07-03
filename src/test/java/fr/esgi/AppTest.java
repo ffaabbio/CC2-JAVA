@@ -22,4 +22,11 @@ public class AppTest {
         assertFalse(test.isEmpty(), "String value should not be empty");
         assertEquals("test", test, "Strings must be equal");
     }
+
+    @Test
+    public void shouldTakeSize() {
+        Size size = new Size(20, 20);
+        Game game = new Game(size);
+        assertNotNull(game.getSize(), "Game's size value should not be null");
+    }
 }
