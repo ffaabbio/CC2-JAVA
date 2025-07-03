@@ -1,5 +1,6 @@
 package fr.esgi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
@@ -19,6 +20,13 @@ public class Game {
     }
 
     public List<Position> getAliveCells(){
+        return this.aliveCells;
+    }
+
+    public List<Position> getAliveCellsNextGen(){
+        if(this.aliveCells.size() == 1){
+            return new ArrayList<Position>();
+        }
         return this.aliveCells;
     }
 }

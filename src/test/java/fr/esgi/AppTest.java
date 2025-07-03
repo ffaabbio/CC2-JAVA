@@ -45,4 +45,15 @@ public class AppTest {
         assertNotNull(game.getSize(), "Game's size value should not be null");
         assertNotNull(game.getAliveCells(), "Game's size value should not be null");
     }
+
+    @Test
+    public void shouldReturnEmptyListIfOneAliveCell() {
+        List<Position> aliveCells = List.of(
+            new Position(1, 2)
+        );
+        Size size = new Size(20, 20);
+        Game game = new Game(size,aliveCells);
+        assertTrue(game.getAliveCellsNextGen().isEmpty(), "String value should not be empty");
+
+    }
 }
