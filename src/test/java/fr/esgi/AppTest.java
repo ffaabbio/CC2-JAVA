@@ -56,4 +56,16 @@ public class AppTest {
         assertTrue(game.getAliveCellsNextGen().isEmpty(), "String value should not be empty");
 
     }
+
+    @Test
+    public void shouldReturnEmptyListIfTwoAliveCell() {
+        List<Position> aliveCells = List.of(
+            new Position(1, 2),
+            new Position(4,7)
+        );
+        Size size = new Size(20, 20);
+        Game game = new Game(size,aliveCells);
+        assertTrue(game.getAliveCellsNextGen().isEmpty(), "String value should not be empty");
+
+    }
 }

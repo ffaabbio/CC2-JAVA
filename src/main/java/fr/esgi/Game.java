@@ -24,7 +24,7 @@ public class Game {
     }
 
     public List<Position> getAliveCellsNextGen(){
-        if(this.aliveCells.size() == 1){
+        if(this.aliveCells.size() == 1 || this.aliveCells.size() == 2){
             return new ArrayList<Position>();
         }
         return this.aliveCells;
