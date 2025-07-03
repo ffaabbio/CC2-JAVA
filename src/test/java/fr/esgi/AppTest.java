@@ -58,10 +58,11 @@ public class AppTest {
     }
 
     @Test
-    public void shouldReturnEmptyListIfTwoAliveCell() {
+    public void shouldBeDieIfLessThanTwoNeighboursAliveCell() {
         List<Position> aliveCells = List.of(
             new Position(1, 2),
-            new Position(4,7)
+            new Position(4,7),
+            new Position(5, 6)
         );
         Size size = new Size(20, 20);
         Game game = new Game(size,aliveCells);

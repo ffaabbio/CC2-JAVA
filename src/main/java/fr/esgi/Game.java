@@ -23,10 +23,35 @@ public class Game {
         return this.aliveCells;
     }
 
+    private int howManyNeighbours(Position cell) {
+        int count = 0;
+        for (Position p : aliveCells) {
+
+            if (p.equals(new Position(cell.x()+1,cell.y()))
+            || p.equals(new Position(cell.x()+1,cell.y()-1))
+            || p.equals(new Position(cell.x(),cell.y()-1))
+            || p.equals(new Position(cell.x()-1,cell.y()-1))
+            || p.equals(new Position(cell.x()-1,cell.y()))
+            || p.equals(new Position(cell.x()-1,cell.y()+1))
+            || p.equals(new Position(cell.x(),cell.y()+1))
+            || p.equals(new Position(cell.x()+1,cell.y()+1))
+            ){
+                count++;
+            }
+        }
+        return count;
+    }
+
     public List<Position> getAliveCellsNextGen(){
-        if(this.aliveCells.size() == 1 || this.aliveCells.size() == 2){
+        if(this.aliveCells.size() == 1){
             return new ArrayList<Position>();
         }
-        return this.aliveCells;
+        List<Position> nextGen = new ArrayList<>();
+        for (Position cell : this.aliveCells) {
+            if (howManyNeighbours(cell) >= 2) {
+                nextGen.add(cell);
+            }
+        }
+        return nextGen;
     }
 }
